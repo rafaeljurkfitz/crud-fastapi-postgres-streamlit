@@ -36,12 +36,14 @@ services:
       - ./frontend/src:/app
     ports:
       - "8501:8501"
+    depends_on:
+      - backend
     networks:
       - mynetwork
 
 networks:
   mynetwork:
-    driver: bridge
+    
 
 volumes:
   postgres_data:

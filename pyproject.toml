@@ -11,6 +11,11 @@ fastapi = "^0.111.1"
 psycopg2-binary = "^2.9.9"
 sqlalchemy = "^2.0.31"
 streamlit = "^1.37.0"
+python-jose = "^3.3.0"
+bcrypt = "^4.2.0"
+passlib = "^1.7.4"
+pydantic-settings = "^2.4.0"
+streamlit-jwt-authenticator = "^0.0.2"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.2"

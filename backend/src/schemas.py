@@ -35,6 +35,8 @@ class ProductResponse(ProductBase):
     id: int
     created_at: datetime
     updated_at: datetime
+    created_by: int
+    updated_by: int
 
     class Config:
         orm_mode = True
@@ -54,3 +56,29 @@ class ProductUpdate(BaseModel):
         if v in [item.value for item in CategoryBase]:
             return v
         raise ValueError("Categoria inválida")
+
+
+class UserBase(BaseModel):
+    email: EmailStr
+
+
+class UserCreate(UserBase):
+    password: str
+
+
+class User(UserBase):
+    id: int
+    is_active: bool
+    products_: list[ProductBase] = []
+
+    class Config:
+        from_attributes = True
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+
+
+class TokenPayload(BaseModel):
+    sub: int | None = None
